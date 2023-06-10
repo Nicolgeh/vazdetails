@@ -1,0 +1,14 @@
+
+
+
+
+/* Carousel */
+.carousel-inner img {
+    overflow: hidden;
+    display: block;
+    width: auto;
+    height: 50rem !important;
+    margin: 0 auto;
+    filter: brightness(70%);
+    filter: blur(1.2px);
+  }
