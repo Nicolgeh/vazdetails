@@ -2,7 +2,7 @@
 <footer class="text-center text-lg-start text-white" style="background-color: #f2d900">
     <!-- Section: Social media -->
     <section class="d-flex justify-content-between p-4" style="background-color: #ff4444; color: black;">
- 
+
         <div class="me-5">
             <span>Мы в социальных сетях:</span>
         </div>
@@ -30,10 +30,10 @@
                 <!-- Grid column -->
                 <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                     <!-- Content -->
-                    <h6 class="text-uppercase fw-bold">ФАРЫ ТЛТ</h6>
+                    <h6 class="text-uppercase fw-bold"><a href="/">ФАРЫ ТЛТ</a> </h6>
                     <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #f2d900; height: 2px" />
                     <p>
-                    Перспективная команда по продаже оригинальных/переделанных деталей для отечественного автопрома от производителя
+                        Перспективная команда по продаже оригинальных/переделанных деталей для отечественного автопрома от производителя
                     </p>
                 </div>
                 <!-- Grid column -->
@@ -61,13 +61,13 @@
                         <a href="#!" class="text-white">Аккаунт</a>
                     </p>
                     <p>
-                        <a href="#!" class="text-white">Каталог</a>
+                        <a href="../../catalog.php" class="text-white">Каталог</a>
                     </p>
                     <p>
-                        <a href="#!" class="text-white">О нас</a>
+                        <a href="../../about_us.php" class="text-white">О нас</a>
                     </p>
                     <p>
-                        <a href="#!" class="text-white">Контакты</a>
+                        <a href="../../contacts.php" class="text-white">Контакты</a>
                     </p>
                 </div>
                 <!-- Grid column -->

@@ -47,7 +47,7 @@ header ul li:hover{
     overflow: hidden;
     display: block;
     width: auto;
-    height: 50rem !important;
+    height: 40rem !important;
     margin: 0 auto;
     filter: brightness(70%);
     filter: blur(1.2px);
@@ -195,3 +195,5 @@ header ul li:hover{
     border-radius: 3px;
     border-width: 1px;
   }
+
+/* Catalog */

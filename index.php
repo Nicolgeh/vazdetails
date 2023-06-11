@@ -36,7 +36,7 @@ include 'path.php';
 
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="/assets/images/details/1.jpg" class="d-block w-100" alt="vaz2112">
+                    <img src="/assets/images/details/1.jpg" class="d-block w-80" alt="vaz2112">
                     <div class="carousel-caption d-none d-md-block">
                     <a href="single.php">
                         <h5>Блок Фара 2112 ОРИГИНАЛ</h5>
@@ -45,7 +45,7 @@ include 'path.php';
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="/assets/images/details/2.webp" class="d-block w-100" alt="vazprioraamg">
+                    <img src="/assets/images/details/2.webp" class="d-block w-80" alt="vazprioraamg">
                     <div class="carousel-caption d-none d-md-block">
                     <a href="single.php">
                         <h5>Блок фары Приора AMG</h5>
@@ -54,7 +54,7 @@ include 'path.php';
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="/assets/images/details/3.jpg" class="d-block w-100" alt="vazptf">
+                    <img src="/assets/images/details/3.jpg" class="d-block w-80" alt="vazptf">
                     <div class="carousel-caption d-none d-md-block">
                     <a href="single.php">
                         <h5>ПТФ для 2108-2115</h5>
@@ -146,6 +146,7 @@ include 'path.php';
     <div class="container">
         <div class="row mb-2">
             <div class="col-md-6">
+            <a href="reviews.php">
                 <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                     <div class="col p-4 d-flex flex-column position-static">
                         <strong class="d-inline-block mb-2 text-primary">Тольятти</strong>
@@ -157,8 +158,10 @@ include 'path.php';
                         <img class="bd-placeholder-img" width="200" height="250" src="assets/images/reviews/calina1.jpg" alt="">
                     </div>
                 </div>
+                </a>
             </div>
             <div class="col-md-6">
+            <a href="reviews.php">
                 <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                     <div class="col p-4 d-flex flex-column position-static">
                         <strong class="d-inline-block mb-2 text-success">Самара</strong>
@@ -170,6 +173,7 @@ include 'path.php';
                         <img class="bd-placeholder-img" width="200" height="250" src="assets/images/reviews/VAZ-2115.jpg" alt="">
                     </div>
                 </div>
+                </a>
             </div>
         </div>
     </div>
