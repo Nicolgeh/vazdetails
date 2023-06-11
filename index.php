@@ -21,7 +21,6 @@ include 'path.php';
         @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
     </style>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!------ Include the above in your HEAD tag ---------->
 </head>
 
 <body>
@@ -39,32 +38,38 @@ include 'path.php';
                 <div class="carousel-item active">
                     <img src="/assets/images/details/1.jpg" class="d-block w-100" alt="vaz2112">
                     <div class="carousel-caption d-none d-md-block">
+                    <a href="single.php">
                         <h5>Блок Фара 2112 ОРИГИНАЛ</h5>
                         <p>Оригинальный фары на ваз 2112 в наличие</p>
+                        </a>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img src="/assets/images/details/2.webp" class="d-block w-100" alt="vazprioraamg">
                     <div class="carousel-caption d-none d-md-block">
+                    <a href="single.php">
                         <h5>Блок фары Приора AMG</h5>
                         <p>Блок фары на Лада Приора в стиле AMG</p>
+                        </a>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img src="/assets/images/details/3.jpg" class="d-block w-100" alt="vazptf">
                     <div class="carousel-caption d-none d-md-block">
+                    <a href="single.php">
                         <h5>ПТФ для 2108-2115</h5>
                         <p>Двурежимные линзованные ПТФ для машин ВАЗ 2108-2115</p>
+                        </a>
                     </div>
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
+                <span class="visually-hidden">Предыдущее</span>
             </button>
             <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
+                <span class="visually-hidden">Следущее</span>
             </button>
         </div>
     </div>
@@ -79,6 +84,7 @@ include 'path.php';
         <div class="row" id="ads">
             <!-- Category Card -->
             <div class="col-md-4">
+            <a href="single.php">
                 <div class="card rounded">
                     <div class="card-image">
                         <span class="card-notify-badge">10-ки</span>
@@ -90,10 +96,11 @@ include 'path.php';
                         <span class="card-detail-badge">₽2,000 за 1шт</span>
                         <span class="card-detail-badge">Оптика</span>
                     </div>
-                    <a class="ad-btn" href="#">View</a>
                 </div>
+                </a>
             </div>
             <div class="col-md-4">
+            <a href="single.php">
                 <div class="card rounded">
                     <div class="card-image">
                         <span class="card-notify-badge">Приоры</span>
@@ -106,9 +113,11 @@ include 'path.php';
                         <span class="card-detail-badge">Оптика</span>
                     </div>
                 </div>
+                </a>
             </div>
 
             <div class="col-md-4">
+                <a href="single.php">
                 <div class="card rounded">
                     <div class="card-image">
                         <span class="card-notify-badge">Классика, 10-ки</span>
@@ -121,6 +130,7 @@ include 'path.php';
                         <span class="card-detail-badge">Оптика</span>
                     </div>
                 </div>
+                </a>
             </div>
             <!-- new card here -->
         </div>

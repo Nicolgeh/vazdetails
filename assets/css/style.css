@@ -33,6 +33,7 @@ header ul li:hover{
 
 /* Carousel */
 .carousel{
+  margin-top: 1rem;
   border-style:solid;
   border-radius: 3px;
   border-width: 1px;
@@ -182,4 +183,15 @@ header ul li:hover{
 #ads .ad-title h5 {
       text-transform: uppercase;
       font-size: 18px;
+  }
+
+  /* Single */
+  /* img */
+  .img-single{
+    margin-top: 1rem;
+  }
+  .img-single img{
+    border-style:solid;
+    border-radius: 3px;
+    border-width: 1px;
   }
