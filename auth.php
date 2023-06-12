@@ -1,5 +1,6 @@
-<?php 
-include 'path.php';
+<?php
+include 'app/controllers/users.php';
+include_once 'app/database/db.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,51 +31,45 @@ include 'path.php';
     <!-- Header -->
     <?php include 'assets/include/header.php'; ?>
 
-        <!-- title -->
-        <div class="title">
+    <!-- title -->
+    <div class="title mb-4">
         <span>
-            Левый блок фары ВАЗ 2110-12
+            Вход
         </span>
     </div>
 
-    <!-- IMG -->
+    <!-- Auth -->
     <div class="container">
-        <div class="img-single">
-            <img class="d-block w-100" src="assets/images/details/1.jpg" alt="fary2110">
-        </div>
-    </div>
 
-    <!-- Category -->
-    <div class="container">
-        <div class="category-single col-xs-12 col-md-12">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">Категория</th>
-                        <th scope="col">Подкатегория</th>
-                        <th scope="col">Машина</th>
-                    </tr>
-                </thead>
-                <tr>
-                    <th scope="col"><a href="#">Оптика</a></th>
-                    <th scope="col"><a href="#">Оригинал</a></th>
-                    <th scope="col"><a href="#">ВАЗ 2110-12</a></th>
-                </tr>
-            </table>
-        </div>
-    </div>
 
-    <!-- Description -->
-    <div class="container">
-        <div class="description-single">
-            <p><h4>Описание:</h4>  Левая передняя фара для автомобилей Лада десятого семейства.</p>
-            <p><h4>Цена:</h4> ₽2,000 за 1шт</p>
-            <div class="buttons-single row mb-4">
-            <button type="submit" class="btn btn-success col-12 col-md-12"><a href="#">Приобрести</a></button>
-
+        <form class="m-auto col-10 col-md-6 w-70" method="POST">
+            <!-- Email input -->
+            <div class="form-outline mb-4 col-12 col-md-12">
+                <input name="email" type="email" id="form2Example1" class="form-control" />
+                <label class="form-label" for="form2Example1">Email</label>
             </div>
 
-        </div>
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+                <input name="password" type="password" id="form2Example2" class="form-control" />
+                <label class="form-label" for="form2Example2">Пароль</label>
+            </div>
+
+            <!-- 2 column grid layout for inline styling -->
+            <div class="text-center mb-4">
+                <!-- Simple link -->
+                <a href="#!">Забыли пароль? Нажми на меня!</a>
+            </div>
+
+            <!-- Submit button -->
+            <button name="button-auth" type="submit" class="btn btn-primary btn-block mb-4 w-100">Войти</button>
+
+        </form>
+    </div>
+    <div class="title mb-4">
+        <span>
+            ↑
+        </span>
     </div>
     <!-- Footer -->
     <?php include 'assets/include/footer.php'; ?>

@@ -17,31 +17,36 @@
       <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
         <input type="search" class="form-control" placeholder="Поиск..." aria-label="Search">
       </form>
+      <?php if (isset($_SESSION['id_user'])) : ?>
+        <div class="dropdown text-end">
+          <a href="" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="../../assets/images/avatars/prewiew.png" alt="ava" width="32" height="32" class="rounded-circle">
+          </a>
 
-      <div class="dropdown text-end">
-        <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-          <img src="assets/images/avatars/prewiew.png" alt="ava" width="32" height="32" class="rounded-circle">
-        </a>
-        <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-          <li><a class="dropdown-item" href="#">Войти</a></li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-          <li><a class="dropdown-item" href="#">Регистрация</a></li>
-        </ul>
-
-        <?php if (false) : ?>
           <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-            <li><a class="dropdown-item" href="#">New project...</a></li>
-            <li><a class="dropdown-item" href="#">Settings</a></li>
-            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><a class="dropdown-item" href="#">Заказы</a></li>
+            <li><a class="dropdown-item" href="../../users/user/profile.php">Профиль</a></li>
             <li>
               <hr class="dropdown-divider">
             </li>
-            <li><a class="dropdown-item" href="#">Sign out</a></li>
+            <li><a class="dropdown-item" href="../../logout.php">Выйти</a></li>
           </ul>
-        <?php endif; ?>
-      </div>
+
+
+        <?php else : ?>
+          <div class="dropdown text-end">
+            <a href="" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="../../assets/images/avatars/prewiew.png" alt="ava" width="32" height="32" class="rounded-circle">
+            </a>
+            <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+              <li><a class="dropdown-item" href="../../auth.php">Войти</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="../../reg.php">Регистрация</a></li>
+            </ul>
+          <?php endif; ?>
+          </div>
+        </div>
     </div>
-  </div>
 </header>
