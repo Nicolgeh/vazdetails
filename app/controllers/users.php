@@ -37,6 +37,26 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['button-reg'])){
             'password' => $passHash,
             'phone' => $phone
         ];
+        // Переменная $headers нужна для Email заголовка
+        $headers  = "MIME-Version: 1.0\r\n";
+        $headers .= "Content-type: text/html; charset=utf-8\r\n";
+        $headers .= "To: <$email>\r\n";
+        $headers .= "From: <mail@example.com>\r\n";
+        // Сообщение для Email
+        $message = '
+                <html>
+                <head>
+                <title>Подтвердите Email</title>
+                </head>
+                <body>
+                <p>Что бы подтвердить Email, перейдите по <a href="http://example.com/confirmed.php?hash=' . $hash . '">ссылка</a></p>
+                </body>
+                </html>
+                ';
+                if (mail($email, "Подтвердите Email на сайте", $message, $headers)) {
+                    // Если да, то выводит сообщение
+                    echo 'Подтвердите на почте';
+                }
         $id_user = insert($table, $post);
         $user = selectOne('users', ['id_user' => $id_user]);
         $defaultAva = [
@@ -120,5 +140,3 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['button-reg'])){
 //         echo "Your passwords doesn't matches";
 //     }   
 // }
-
-?>
