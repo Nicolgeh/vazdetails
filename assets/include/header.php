@@ -1,3 +1,4 @@
+<?php include_once $_SERVER['DOCUMENT_ROOT'] . '/app/database/db.php'; ?>
 <header class="pt-3 border-bottom">
   <div class="container">
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -20,7 +21,7 @@
       <?php if (isset($_SESSION['id_user'])) : ?>
         <div class="dropdown text-end">
           <a href="" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="../../assets/images/avatars/prewiew.png" alt="ava" width="32" height="32" class="rounded-circle">
+            <img src="<?=  '../../assets/images/avatars/' . selectOne('usersAvatars', ['id_user' => $_SESSION['id_user']])['name']; ?>" alt="ava" width="32" height="32" class="rounded-circle">
           </a>
 
           <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">

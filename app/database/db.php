@@ -84,12 +84,12 @@ function insert($table, $params){
             $col = $col . ", $key";
             $mask = $mask . ", '$value'";
         }
-
         $i++;
     }
+
     $sql = "INSERT INTO $table ($col) VALUES ($mask)";
     $query = $pdo->prepare($sql);
-    $query->execute($params);
+    $query->execute();
     dbCheckError($query);
     return $pdo->lastInsertId();
 }
@@ -119,7 +119,7 @@ function update($table, $paramsData, $paramsWhere){
     }
     $sql = "UPDATE $table SET $set WHERE $where";
     $query = $pdo->prepare($sql);
-    $query->execute($paramsData);
+    $query->execute();
     dbCheckError($query);
 }
 

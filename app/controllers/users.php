@@ -1,10 +1,12 @@
 <?php 
 
-include 'path.php';
-include_once 'app/database/db.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/path.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/app/database/db.php';
+//include $_SERVER['DOCUMENT_ROOT'] . '/app/controllers/upload.php';
 
 $isSubmit = false;
 $errMsg = '';
+$table = 'users';
 if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['button-reg'])){
     $firstname = trim($_POST['firstname']);
     $lastname = trim($_POST['lastname']);
@@ -25,7 +27,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['button-reg'])){
     }elseif(strlen($pass) < 6){
         $errMsg = 'Пароль должен быть длинее 6-ти символов';
     }else{
-        $table = 'users';
+        
         $passHash = password_hash($pass, PASSWORD_DEFAULT);
         $post = [
             'admin' => $admin,
@@ -37,7 +39,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['button-reg'])){
         ];
         $id_user = insert($table, $post);
         $user = selectOne('users', ['id_user' => $id_user]);
-
+        $defaultAva = [
+            'id_user' => $user['id_user'],
+            'name' => 'prewiew.png',
+            'path' => $_SERVER['DOCUMENT_ROOT'] . '\assets\images\avatars'
+        ];
+        insert('usersAvatars', $defaultAva);
         $_SESSION['id_user'] = $user['id_user'];
         $_SESSION['email'] = $user['email'];
         $_SESSION['admin'] = $user['admin'];
@@ -76,6 +83,25 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['button-reg'])){
     $firstname = trim($_POST['firstname']);
     $lastname = trim($_POST['lastname']);
     $phone = trim($_POST['phone']);
+
+    if($firstname === '' || $lastname === '' || $email === '' || $phone === ''){
+        $errMsg = 'Не все поля заполнены';
+    }else{
+        $updatePost = [
+            'email' => $email,
+            'firstname' => $firstname,
+            'lastname' => $lastname,
+            'phone' => $phone,
+        ];
+        $updateWhere = [
+            'id_user' =>  $_SESSION['id_user']
+        ];
+
+        update($table, $updatePost, $updateWhere);
+        
+        header('Location: /users/user/profile.php');
+    }
+
 }else{
     $email = '';
     $firstname = '';

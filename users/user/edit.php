@@ -1,7 +1,7 @@
 <?php
-include '../../path.php';
+
 include '../../app/controllers/users.php';
-include '../../app/database/db.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,19 +41,12 @@ include '../../app/database/db.php';
     <section style="background-color: #eee;">
         <div class="container py-5">
             <div class="row">
-                <form method="POST" class="row" enctype="multipart/form-data">
+                <form method="POST" class="row" action="../../app/controllers/upload.php" enctype="multipart/form-data">
                     <div class="col-lg-4">
                         <div class="card mb-4 h-100 ">
                             <div class="card-body text-center">
-                                <img src="../../assets/images/avatars/prewiew.png" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
-                                <input type="file" name="filename" class="form-control mt-4">
-                                <?php
-                                if ($_FILES && $_FILES["filename"]["error"] == UPLOAD_ERR_OK) {
-                                    $name = $_FILES["filename"]["name"];
-                                    move_uploaded_file($_FILES["filename"]["tmp_name"], '../../assets/images/avatars');
-                                    echo "Файл загружен";
-                                }
-                                ?>
+                                <img src="<?=  '../../assets/images/avatars/' . selectOne('usersAvatars', ['id_user' => $_SESSION['id_user']])['name']; ?>" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+                                <input type="file" name="file" class="form-control mt-4">
                             </div>
                         </div>
                     </div>
@@ -61,11 +54,14 @@ include '../../app/database/db.php';
                         <div class="card mb-4">
                             <div class="card-body">
                                 <div class="row">
+                                    <div class="err text-center mb-4 text-danger text-bold">
+                                        <?= $errMsg; ?>
+                                    </div>
                                     <div class="col-sm-3">
                                         <p class="mb-0">Фамилия</p>
                                     </div>
                                     <div class="col-sm-9 form-outline">
-                                        <input type="text" name="lastname" class="form-control" placeholder="<?php echo selectOne('users', ['id_user' => $_SESSION['id_user']])['lastname']; ?>">
+                                        <input type="text" name="lastname" class="form-control" placeholder="<?php echo selectOne('users', ['id_user' => $_SESSION['id_user']])['lastname']; ?>" value="<?php echo selectOne('users', ['id_user' => $_SESSION['id_user']])['lastname']; ?>">
                                     </div>
                                 </div>
                                 <hr>
@@ -74,7 +70,7 @@ include '../../app/database/db.php';
                                         <p class="mb-0">Имя</p>
                                     </div>
                                     <div class="col-sm-9 form-outline">
-                                        <input type="text" name="firstname" class="form-control" placeholder="<?php echo selectOne('users', ['id_user' => $_SESSION['id_user']])['firstname']; ?>">
+                                        <input type="text" name="firstname" class="form-control" placeholder="<?php echo selectOne('users', ['id_user' => $_SESSION['id_user']])['firstname']; ?>" value="<?php echo selectOne('users', ['id_user' => $_SESSION['id_user']])['firstname']; ?>">
                                     </div>
                                 </div>
                                 <hr>
@@ -83,7 +79,7 @@ include '../../app/database/db.php';
                                         <p class="mb-0">Email</p>
                                     </div>
                                     <div class="col-sm-9 form-outline">
-                                        <input type="email" name="email" class="form-control" placeholder="<?php echo selectOne('users', ['id_user' => $_SESSION['id_user']])['email']; ?>">
+                                        <input type="email" name="email" class="form-control" placeholder="<?php echo selectOne('users', ['id_user' => $_SESSION['id_user']])['email']; ?>" value="<?php echo selectOne('users', ['id_user' => $_SESSION['id_user']])['email']; ?>">
                                     </div>
                                 </div>
                                 <hr>
@@ -92,7 +88,7 @@ include '../../app/database/db.php';
                                         <p class="mb-0">Phone</p>
                                     </div>
                                     <div class="col-sm-9 form-outline">
-                                        <input type="text" name="phone" class="form-control" placeholder="<?php echo selectOne('users', ['id_user' => $_SESSION['id_user']])['phone']; ?>">
+                                        <input type="text" name="phone" class="form-control" placeholder="<?php echo selectOne('users', ['id_user' => $_SESSION['id_user']])['phone']; ?>" value="<?php echo selectOne('users', ['id_user' => $_SESSION['id_user']])['phone']; ?>">
                                     </div>
                                 </div>
 

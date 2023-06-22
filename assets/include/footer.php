@@ -44,10 +44,10 @@
                     <h6 class="text-uppercase fw-bold">Продукты</h6>
                     <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #f2d900; height: 2px" />
                     <p>
-                        <a href="#!" class="text-white">Оптика</a>
+                        <a href="#!" class="text-black">Оптика</a>
                     </p>
                     <p>
-                        <a href="#!" class="text-white">Салон</a>
+                        <a href="#!" class="text-black">Салон</a>
                     </p>
                 </div>
                 <!-- Grid column -->
@@ -58,16 +58,16 @@
                     <h6 class="text-uppercase fw-bold">Полезные ссылки</h6>
                     <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #f2d900; height: 2px" />
                     <p>
-                        <a href="../../users/user/profile.php" class="text-white">Аккаунт</a>
+                        <a href="../../users/user/profile.php" class="text-black">Аккаунт</a>
                     </p>
                     <p>
-                        <a href="../../catalog.php" class="text-white">Каталог</a>
+                        <a href="../../catalog.php" class="text-black">Каталог</a>
                     </p>
                     <p>
-                        <a href="../../about_us.php" class="text-white">О нас</a>
+                        <a href="../../about_us.php" class="text-black">О нас</a>
                     </p>
                     <p>
-                        <a href="../../contacts.php" class="text-white">Контакты</a>
+                        <a href="../../contacts.php" class="text-black">Контакты</a>
                     </p>
                 </div>
                 <!-- Grid column -->

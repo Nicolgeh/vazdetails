@@ -43,7 +43,7 @@ include '../../app/database/db.php';
                 <div class="col-lg-4">
                     <div class="card mb-4 h-100 ">
                         <div class="card-body text-center">
-                            <img src="../../assets/images/avatars/prewiew.png" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+                            <img src="<?=  '../../assets/images/avatars/' . selectOne('usersAvatars', ['id_user' => $_SESSION['id_user']])['name']; ?>" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
                             <h5 class="my-3"><?php echo selectOne('users', ['id_user' => $_SESSION['id_user']])['firstname'] . " " . selectOne('users', ['id_user' => $_SESSION['id_user']])['lastname']; ?></h5>
 
 
