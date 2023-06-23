@@ -133,6 +133,7 @@ if (isset($_FILES[$input_name])) {
                         'id_user' =>  $_SESSION['id_user']
                     ];
                     update($table, $updateUserAva, $updateWhere);
+                    
                 } else {
                     $error = 'Не удалось загрузить файл.';
                 }
@@ -140,3 +141,4 @@ if (isset($_FILES[$input_name])) {
         }
     }
 }
+header('Location: /');

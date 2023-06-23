@@ -102,6 +102,31 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['button-reg'])){
         header('Location: /users/user/profile.php');
     }
 
+}elseif($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['button-edit-admin'])){
+    $email = trim($_POST['email']);
+    $firstname = trim($_POST['firstname']);
+    $lastname = trim($_POST['lastname']);
+    $phone = trim($_POST['phone']);
+    $admin = trim($_POST['checkAdmin']);
+
+    if($firstname === '' || $lastname === '' || $email === '' || $phone === ''){
+        $errMsg = 'Не все поля заполнены';
+    }else{
+        $updatePost = [
+            'email' => $email,
+            'firstname' => $firstname,
+            'lastname' => $lastname,
+            'phone' => $phone,
+            'admin' => $admin
+        ];
+        $updateWhere = [
+            'id_user' =>  $_GET['id_user']
+        ];
+
+        update($table, $updatePost, $updateWhere);
+        
+        header('Location: /users/admin/users.php');
+    }
 }else{
     $email = '';
     $firstname = '';

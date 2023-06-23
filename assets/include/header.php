@@ -38,37 +38,38 @@
                 <?php elseif (isset($_SESSION['id_user']) && $_SESSION['admin']) : ?>
                     <div class="dropdown text-end">
                         <a href="" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="<?= '../../assets/images/avatars/' . selectOne('usersAvatars', ['id_user' => $_SESSION['id_user']])['name']; ?>" alt="ava" width="32" height="32" class="rounded-circle">
+                            <img src="<?= '../../../assets/images/avatars/' . selectOne('usersAvatars', ['id_user' => $_SESSION['id_user']])['name']; ?>" alt="ava" width="32" height="32" class="rounded-circle">
                         </a>
                         <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-                            <li><a class="dropdown-item" href="../../users/admin/users.php">Пользователи</a></li>
-                            <li><a class="dropdown-item" href="../../users/admin/items.php">Товары</a></li>
-                            <li><a class="dropdown-item" href="../../users/admin/orders.php">Заказы</a></li>
+                            <li><a class="dropdown-item" href="../../../users/admin/Orders/orders.php">Заказы</a></li>
+                            <li><a class="dropdown-item" href="../../../users/admin/Categories/categories.php">Категории</a></li>
+                            <li><a class="dropdown-item" href="../../../users/admin/Items/items.php">Товары</a></li>
+                            <li><a class="dropdown-item" href="../../../users/admin/Users/users.php">Пользователи</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
                             <li><a class="dropdown-item" href="../../users/user/profile.php">Профиль</a></li>
-                        <li><a class="dropdown-item" href="../../logout.php">Выйти</a></li>
+                            <li><a class="dropdown-item" href="../../logout.php">Выйти</a></li>
 
                         </ul>
-                        <?php else : ?>
-                            <div class="dropdown text-end">
-                        <a href="" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="../../assets/images/avatars/prewiew.png" alt="ava" width="32" height="32" class="rounded-circle">
-                        </a>
-                        <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-                            <li><a class="dropdown-item" href="../../auth.php">Войти</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="../../reg.php">Регистрация</a></li>
-                        </ul>
-                    <?php endif; ?>
+                    <?php else : ?>
+                        <div class="dropdown text-end">
+                            <a href="" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="../../assets/images/avatars/prewiew.png" alt="ava" width="32" height="32" class="rounded-circle">
+                            </a>
+                            <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+                                <li><a class="dropdown-item" href="../../auth.php">Войти</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="../../reg.php">Регистрация</a></li>
+                            </ul>
+                        <?php endif; ?>
+                        </div>
                     </div>
+
                 </div>
 
-        </div>
-       
 
 
 

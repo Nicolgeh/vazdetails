@@ -70,7 +70,7 @@ include 'path.php';
             <p><h4>Описание:</h4>  Левая передняя фара для автомобилей Лада десятого семейства.</p>
             <p><h4>Цена:</h4> ₽2,000 за 1шт</p>
             <div class="buttons-single row mb-4">
-            <button type="submit" class="btn btn-success col-12 col-md-12"><a href="#">Приобрести</a></button>
+            <button type="submit" class="btn btn-success col-12 col-md-12"><a href="<?php if (isset($_SESSION)) : ?> buying.php <?php else : ?> auth.php <?php endif; ?>">Приобрести</a></button>
 
             </div>
 

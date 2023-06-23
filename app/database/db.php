@@ -138,7 +138,7 @@ function deleteRow($table, $paramsWhere){
     }
     $sql = "DELETE FROM $table $where";
     $query = $pdo->prepare($sql);
-    $query->execute($paramsWhere);
+    $query->execute();
     dbCheckError($query);
 }
 ?>
