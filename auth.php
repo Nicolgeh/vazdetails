@@ -55,11 +55,7 @@ include_once 'app/database/db.php';
                 <label class="form-label" for="form2Example2">Пароль</label>
             </div>
 
-            <!-- 2 column grid layout for inline styling -->
-            <div class="text-center mb-4">
-                <!-- Simple link -->
-                <a href="#!">Забыли пароль? Нажми на меня!</a>
-            </div>
+
 
             <!-- Submit button -->
             <button name="button-auth" type="submit" class="btn btn-primary btn-block mb-4 w-100">Войти</button>

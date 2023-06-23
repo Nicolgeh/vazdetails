@@ -1,5 +1,6 @@
 <?php 
-include 'path.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/path.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/app/database/db.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,7 +34,7 @@ include 'path.php';
         <!-- title -->
         <div class="title">
         <span>
-            Левый блок фары ВАЗ 2110-12
+            <?= selectOne('items', ['id_item' => $_GET['id_item']])['name']?>
         </span>
     </div>
 
@@ -56,9 +57,9 @@ include 'path.php';
                     </tr>
                 </thead>
                 <tr>
-                    <th scope="col"><a href="#">Оптика</a></th>
-                    <th scope="col"><a href="#">Оригинал</a></th>
-                    <th scope="col"><a href="#">ВАЗ 2110-12</a></th>
+                    <th scope="col"><a href="#"><?= selectOne('categories', [ 'id_category' => selectOne('items', ['id_item' => $_GET['id_item']])['type']])['name']?></a></th>
+                    <th scope="col"><a href="#"><?= selectOne('categories', [ 'id_category' => selectOne('items', ['id_item' => $_GET['id_item']])['podtype']])['name']?></a></th>
+                    <th scope="col"><a href="#"><?= selectOne('categories', [ 'id_category' => selectOne('items', ['id_item' => $_GET['id_item']])['car']])['name']?></a></th>
                 </tr>
             </table>
         </div>
@@ -67,10 +68,10 @@ include 'path.php';
     <!-- Description -->
     <div class="container">
         <div class="description-single">
-            <p><h4>Описание:</h4>  Левая передняя фара для автомобилей Лада десятого семейства.</p>
-            <p><h4>Цена:</h4> ₽2,000 за 1шт</p>
+            <p><h4>Описание:</h4>  <?= selectOne('items', ['id_item' => $_GET['id_item']])['description']?></p>
+            <p><h4>Цена:</h4> <?= selectOne('items', ['id_item' => $_GET['id_item']])['price']?>₽</p>
             <div class="buttons-single row mb-4">
-            <button type="submit" class="btn btn-success col-12 col-md-12"><a href="<?php if (isset($_SESSION)) : ?> buying.php <?php else : ?> auth.php <?php endif; ?>">Приобрести</a></button>
+            <button type="submit" class="btn btn-success col-12 col-md-12"><a href="<?php if (isset($_SESSION)) : ?> buying.php?id_item=<?= $_GET['id_item'] ?> <?php else : ?> auth.php <?php endif; ?>">Приобрести</a></button>
 
             </div>
 
