@@ -78,7 +78,7 @@ include 'path.php';
                                 <div class="card-image">
                                     <span class="card-notify-badge"><?= selectOne('categories', ['id_category' => $value['car']])['name'] ?></span>
                                     <span class="card-notify-year">NEW</span>
-                                    <img class="img-fluid" src="/assets/images/details/1.jpg" alt="Alternate Text" />
+                                    <img class="img-fluid" src="<?= '../../assets/images/details/' . selectOne('itemsFile', ['id_item' => $value['id_item']])['name']; ?>" alt="Alternate Text" />
                                 </div>
                                 <div class="card-image-overlay m-auto">
                                     <span class="card-detail-badge"><?= selectOne('categories', ['id_category' => $value['podtype']])['name'] ?></span>

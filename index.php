@@ -30,26 +30,31 @@ include 'app/database/db.php';
     </script>
     <!-- Header -->
     <?php include 'assets/include/header.php'; ?>
-
+    <!-- title -->
+    <div class="title">
+        <span>
+            ФАРЫ ТЛТ
+        </span>
+    </div>
     <!-- Carousel -->
-    <div class="container">
+    <div class="container bg-dark">
         <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
 
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img src="/assets/images/details/1.jpg" class="d-block w-80" alt="vaz2112">
                     <div class="carousel-caption d-none d-md-block">
-                    <a href="single.php">
-                        <h5>Блок Фара 2112 ОРИГИНАЛ</h5>
-                        <p>Оригинальный фары на ваз 2112 в наличие</p>
+                    <a href="single.php?id_item=11">
+                        <h5>Блок Фара 2110 ОРИГИНАЛ</h5>
+                        <p>Оригинальный фары на ваз 2110 в наличие</p>
                         </a>
                     </div>
                 </div>
                 <?php foreach(selectAll('items') as $key => $value) : ?>
                 <div class="carousel-item">
-                    <img src="/assets/images/details/2.webp" class="d-block w-80" alt="vazprioraamg">
+                    <img src="<?= '../../assets/images/details/' . selectOne('itemsFile', ['id_item' => $value['id_item']])['name']; ?>" class="d-block w-80" alt="vazprioraamg">
                     <div class="carousel-caption d-none d-md-block">
-                    <a href="single.php?id-item=<?=  $value['id-item'] ?>">
+                    <a href="single.php?id-item=<?=  $value['id_item'] ?>">
                         <h5><?= $value['name'] ?></h5>
                         <p><?= $value['description'] ?></p>
                         </a>
@@ -84,7 +89,8 @@ include 'app/database/db.php';
                                 <div class="card-image">
                                     <span class="card-notify-badge"><?= selectOne('categories', ['id_category' => $value['car']])['name'] ?></span>
                                     <span class="card-notify-year">NEW</span>
-                                    <img class="img-fluid" src="/assets/images/details/1.jpg" alt="Alternate Text" />
+                                    <img class="img-fluid" src="<?= '../../assets/images/details/' . selectOne('itemsFile', ['id_item' => $value['id_item']])['name']; ?>" alt="Alternate Text" />
+                                    
                                 </div>
                                 <div class="card-image-overlay m-auto">
                                     <span class="card-detail-badge"><?= selectOne('categories', ['id_category' => $value['podtype']])['name'] ?></span>
@@ -107,39 +113,29 @@ include 'app/database/db.php';
     </div>
     <!-- Reviews -->
     <div class="container">
-        <div class="row mb-2">
+        <div class="row mb-2 mt-4">
+            <?php foreach(selectAll('reviews') as $key => $value) : ?>
             <div class="col-md-6">
-            <a href="reviews.php">
+            <a href="review.php?id_review=<?= $value['id_review']; ?>">
                 <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                    <div class="col p-4 d-flex flex-column position-static">
-                        <strong class="d-inline-block mb-2 text-primary">Тольятти</strong>
-                        <h3 class="mb-0">Фары на Калину 1</h3>
-                        <div class="mb-1 text-muted">5 Июня 2023</div>
-                        <p class="card-text mb-auto">Отлично подошли новые фары, хорошо светят, не слепят других водителей</p>
+                    <div class=" bg-dark col p-4 d-flex flex-column position-static">
+                        <strong class="d-inline-block mb-2 text-primary"><?= $value['city']; ?></strong>
+                        <h3 class="mb-0 text-white"><?= $value['name']; ?></h3>
+                        <div class="mb-1 text-white "><?= date("d.m.Y", strtotime($value['timestamp'])) ?></div>
+                        <p class="card-text mb-auto text-white"><?= $value['description']; ?></p>
                     </div>
                     <div class="col-auto d-none d-lg-block">
-                        <img class="bd-placeholder-img" width="200" height="250" src="assets/images/reviews/calina1.jpg" alt="">
+                        <img class="bd-placeholder-img" width="200" height="250" src="<?= '/assets/images/reviews/' . selectOne('reviewsFile', ['id_review' => $value['id_review']])['name']; ?>" alt="">
                     </div>
                 </div>
                 </a>
             </div>
-            <div class="col-md-6">
-            <a href="reviews.php">
-                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                    <div class="col p-4 d-flex flex-column position-static">
-                        <strong class="d-inline-block mb-2 text-success">Самара</strong>
-                        <h3 class="mb-0">Фары на ВАЗ 2115</h3>
-                        <div class="mb-1 text-muted">2 Июня 2023</div>
-                        <p class="mb-auto">Машина конечно сама по себе ужас, но вот эти фары хоть как-то спасают положение и делают ее приемлимой</p>
-                    </div>
-                    <div class="col-auto d-none d-lg-block">
-                        <img class="bd-placeholder-img" width="200" height="250" src="assets/images/reviews/VAZ-2115.jpg" alt="">
-                    </div>
-                </div>
-                </a>
-            </div>
+            <?php endforeach; ?>
+
+            
         </div>
     </div>
+
     <!-- title -->
     <div class="title">
         <span>
@@ -148,25 +144,25 @@ include 'app/database/db.php';
     </div>
     <!-- About us -->
     <div class="container">
-        <div class="p-4 mb-3 bg-light rounded">
-            <h4 class="fst-italic">Мы</h4>
-            <p class="mb-0">Перспективная команда по продаже оригинальных/переделанных деталей для отечественного автопрома от производителя</p>
+        <div class="p-4 mb-3 bg-dark rounded">
+            <h4 class="fst-italic text-white">Мы</h4>
+            <p class="mb-0 text-white">Перспективная команда по продаже оригинальных/переделанных деталей для отечественного автопрома от производителя</p>
         </div>
-        <div class="p-4 mb-3 bg-light rounded">
-            <h4 class="fst-italic">Мы - Везде</h4>
-            <p class="mb-0">Продаем детали по всей России: Авито Доставка, Почта России, Яндекс Маркет, Ozon, Boxberry</p>
+        <div class="p-4 mb-3 bg-dark rounded">
+            <h4 class="fst-italic text-white">Мы - Везде</h4>
+            <p class="mb-0 text-white">Продаем детали по всей России: Авито Доставка, Почта России, Яндекс Маркет, Ozon, Boxberry</p>
         </div>
-        <div class="p-4 mb-3 bg-light rounded">
-            <h4 class="fst-italic">Мы - Качество</h4>
-            <p class="mb-0">Только лучшие запчасти, только со станка</p>
+        <div class="p-4 mb-3 bg-dark rounded">
+            <h4 class="fst-italic text-white">Мы - Качество</h4>
+            <p class="mb-0 text-white">Только лучшие запчасти, только со станка</p>
         </div>
-        <div class="p-4 mb-3 bg-light rounded">
-            <h4 class="fst-italic">Мы - Гарантия</h4>
-            <p class="mb-0">В случае брака идем на контакт и компенсируем товар</p>
+        <div class="p-4 mb-3 bg-dark rounded">
+            <h4 class="fst-italic text-white">Мы - Гарантия</h4>
+            <p class="mb-0 text-white">В случае брака идем на контакт и компенсируем товар</p>
         </div>
-        <div class="p-4 mb-3 bg-light rounded">
-            <h4 class="fst-italic">Мы - Количество</h4>
-            <p class="mb-0">Напрямую от производителя каждый день новые поступления товара</p>
+        <div class="p-4 mb-3 bg-dark rounded">
+            <h4 class="fst-italic text-white">Мы - Количество</h4>
+            <p class="mb-0 text-white">Напрямую от производителя каждый день новые поступления товара</p>
         </div>
     </div>
 

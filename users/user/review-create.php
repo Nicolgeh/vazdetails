@@ -1,5 +1,5 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . '/app/controllers/items.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/app/controllers/review-create.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/app/database/db.php';
 ?>
 <!DOCTYPE html>
@@ -13,7 +13,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/app/database/db.php';
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/70351fc90b.js" crossorigin="anonymous"></script>
     <!-- Main CSS -->
-    <link rel="stylesheet" href="../../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
     <!-- Fonts Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,7 +29,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/app/database/db.php';
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
     </script>
     <!-- Header -->
-    <?php include '../../../assets/include/header.php'; ?>
+    <?php include '../../assets/include/header.php'; ?>
 
     <!-- title -->
     <div class="title mb-4">
@@ -50,7 +50,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/app/database/db.php';
             <!-- Name input -->
             <div class="form-outline mb-4 col-12 col-md-12">
                 <input name="name" type="text" id="form2Example1" class="form-control" />
-                <label class="form-label" for="form2Example1">Наименование</label>
+                <label class="form-label" for="form2Example1">Заголовок</label>
             </div>
 
             <!-- Description input -->
@@ -60,8 +60,8 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/app/database/db.php';
             </div>
             <!-- Price input -->
             <div class="form-outline mb-4">
-                <input name="price" type="text" id="form2Example2" class="form-control" />
-                <label class="form-label" for="form2Example2">Цена</label>
+                <input name="city" type="text" id="form2Example2" class="form-control" />
+                <label class="form-label" for="form2Example2">Город</label>
             </div>
             <select class="form-select mb-4" aria-label="Выбор категории" name="checkCar">
                 <option selected>Выберите Машину</option>
@@ -70,17 +70,12 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/app/database/db.php';
                 <?php endforeach; ?>
             </select>
             <select class="form-select mb-4" aria-label="Выбор категории" name="ckeckCategory">
-                <option selected>Выберите категорию</option>
-                <?php foreach (selectAll('categories', ['type' => 1]) as $key => $value) : ?>
-                    <option value="<?= $value['id_category'] ?>"><?= $value['name'] ?></option>
+                <option selected>Выберите товар</option>
+                <?php foreach (selectAll('items') as $key => $value) : ?>
+                    <option value="<?= $value['id_item'] ?>"><?= $value['name'] ?></option>
                 <?php endforeach; ?>
             </select>
-            <select class="form-select mb-4" aria-label="Выбор категории" name="checkPodCategory">
-                <option selected>Выберите подкатегорию</option>
-                <?php foreach (selectAll('categories', ['type' => 2]) as $key => $value) : ?>
-                    <option value="<?= $value['id_category'] ?>"><?= $value['name'] ?></option>
-                <?php endforeach; ?>
-            </select>
+
 
 
             <!-- Submit button -->
@@ -95,7 +90,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/app/database/db.php';
         </span>
     </div>
     <!-- Footer -->
-    <?php include '../../../assets/include/footer.php'; ?>
+    <?php include '../../assets/include/footer.php'; ?>
 </body>
 
 </html>

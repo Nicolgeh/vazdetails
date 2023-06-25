@@ -1,7 +1,25 @@
-<?php
+<?php 
 include $_SERVER['DOCUMENT_ROOT'] . '/app/database/db.php';
-// Название <input type="file">
-$input_name = 'file';
+if(isset($_POST['button-create-item'])) {
+    $name = trim($_POST['name']);
+    $description = trim($_POST['description']);
+    $city = trim($_POST['city']);
+    $car = trim($_POST['checkCar']);
+    $item = trim($_POST['ckeckCategory']);
+if($_POST['name'] === '' || $_POST['description'] === ''|| $_POST['city'] === ''|| $_POST['checkCar'] === ''|| $_POST['ckeckCategory'] === ''){
+    $errMsg = 'Не все поля заполнены';
+}else{
+    $newItem = [
+        'name' => $name,
+        'description' => $description,
+        'city' => $city,
+        'car' => $car,
+        'item' => $item
+    ];
+    $id_review = insert('reviews', $newItem);
+    insert('reviewsFile', ['id_review' => $id_review]);
+    {
+        $input_name = 'file';
 
 // Разрешенные расширения файлов.
 $allow = array();
@@ -14,7 +32,7 @@ $deny = array(
 );
 
 // Директория куда будут загружаться файлы.
-$path = $_SERVER['DOCUMENT_ROOT'] . '/assets/images/avatars/';
+$path = $_SERVER['DOCUMENT_ROOT'] . '/assets/images/reviews/';
 
 if (isset($_FILES[$input_name])) {
     // Проверим директорию для загрузки.
@@ -125,15 +143,16 @@ if (isset($_FILES[$input_name])) {
                     
                     // Далее можно сохранить название файла в БД и т.п.
                     //$success = 'Файл «' . $name . '» успешно загружен.';
-                    $table = 'usersAvatars';
-                    $updateUserAva = [
+                    $table = 'reviewsFile';
+                    $updateReviewFile = [
                         'name' => $name,
                         'path' => $path
                     ];
                     $updateWhere = [
-                        'id_user' =>  $_SESSION['id_user']
+                        'id_review' =>  $id_review
                     ];
-                    update($table, $updateUserAva, $updateWhere);
+                    update($table, $updateReviewFile, $updateWhere);
+                    
                     
                 } else {
                     $error = 'Не удалось загрузить файл.';
@@ -142,4 +161,8 @@ if (isset($_FILES[$input_name])) {
         }
     }
 }
-header('Location: /');
+    }
+    header('Location: /reviews.php' );
+}
+
+}

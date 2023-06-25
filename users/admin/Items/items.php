@@ -34,7 +34,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/app/database/db.php';
     <!-- title -->
     <div class="title">
         <span>
-            Категории
+            Позиции
         </span>
     </div>
     <!-- Table -->

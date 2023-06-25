@@ -68,7 +68,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['button-reg'])){
             $_SESSION['email'] = $selEmail['email'];
             $_SESSION['admin'] = $selEmail['admin'];
             if($_SESSION['admin']){
-                header('Location: \users\admin\orders.php');
+                header('Location: \users\admin\Orders\orders.php');
             }else{
                 header('Location: /users/user/profile.php');
             }

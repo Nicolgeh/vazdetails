@@ -1,6 +1,5 @@
 <?php 
-include $_SERVER['DOCUMENT_ROOT'] . '/path.php';
-include $_SERVER['DOCUMENT_ROOT'] . '/app/database/db.php';
+include 'path.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,14 +33,14 @@ include $_SERVER['DOCUMENT_ROOT'] . '/app/database/db.php';
         <!-- title -->
         <div class="title">
         <span>
-            <?= selectOne('items', ['id_item' => $_GET['id_item']])['name']?>
+            Фары на Калина 1
         </span>
     </div>
 
     <!-- IMG -->
     <div class="container">
         <div class="img-single">
-            <img class="d-block w-100" src="<?= '../../assets/images/details/' . selectOne('itemsFile', ['id_item' => $_GET['id_item']])['name']; ?>" alt="fary2110">
+            <img class="d-block w-100" src="assets/images/reviews/<?= selectOne('reviewsFile', ['id_review' => $_GET['id_review']])['name'] ?>" alt="fary2110">
         </div>
     </div>
 
@@ -51,15 +50,15 @@ include $_SERVER['DOCUMENT_ROOT'] . '/app/database/db.php';
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">Категория</th>
-                        <th scope="col">Подкатегория</th>
+                        <th scope="col">Товар</th>
                         <th scope="col">Машина</th>
+                        <th scope="col">Дата</th>
                     </tr>
                 </thead>
                 <tr>
-                    <th scope="col"><a href="#"><?= selectOne('categories', [ 'id_category' => selectOne('items', ['id_item' => $_GET['id_item']])['type']])['name']?></a></th>
-                    <th scope="col"><a href="#"><?= selectOne('categories', [ 'id_category' => selectOne('items', ['id_item' => $_GET['id_item']])['podtype']])['name']?></a></th>
-                    <th scope="col"><a href="#"><?= selectOne('categories', [ 'id_category' => selectOne('items', ['id_item' => $_GET['id_item']])['car']])['name']?></a></th>
+                    <th scope="col"><a href="#"><?= selectOne('items', ['id_item' => selectOne('reviews', ['id_review' => $_GET['id_review']])['item']])['name'] ?></a></th>
+                    <th scope="col"><a href="#"><?= selectOne('categories', ['id_category' => selectOne('reviews', ['id_review' => $_GET['id_review']])['car']])['name'] ?></a></th>
+                    <th scope="col"><?= date("d.m.Y", strtotime(selectOne('reviews', ['id_review' => $_GET['id_review']])['timestamp'])) ?></th>
                 </tr>
             </table>
         </div>
@@ -68,13 +67,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/app/database/db.php';
     <!-- Description -->
     <div class="container">
         <div class="description-single">
-            <p><h4>Описание:</h4>  <?= selectOne('items', ['id_item' => $_GET['id_item']])['description']?></p>
-            <p><h4>Цена:</h4> <?= selectOne('items', ['id_item' => $_GET['id_item']])['price']?>₽</p>
-            <div class="buttons-single row mb-4">
-            <button type="submit" class="btn btn-success col-12 col-md-12"><a href="<?php if (isset($_SESSION)) : ?> buying.php?id_item=<?= $_GET['id_item'] ?> <?php else : ?> auth.php <?php endif; ?>">Приобрести</a></button>
-
-            </div>
-
+            <p><h4>Описание:</h4>  <?= selectOne('reviews', ['id_review' => $_GET['id_review']])['description'] ?></p>
         </div>
     </div>
     <!-- Footer -->
