@@ -1,5 +1,5 @@
 <?php
-include 'app/controllers/users.php';
+include 'app/controllers/orders.php';
 include_once 'app/database/db.php';
 ?>
 <!DOCTYPE html>
@@ -65,13 +65,13 @@ include_once 'app/database/db.php';
             </div>
             <!-- Email input -->
             <div class="form-outline mb-4 col-12 col-md-12">
-                <input name="firstname" type="text" id="form2Example1" class="form-control" />
+                <input name="address" type="text" id="form2Example1" class="form-control" />
                 <label class="form-label" for="form2Example1">Адрес доставки</label>
             </div>
 
 
             <!-- Submit button -->
-            <button name="button-auth" type="submit" class="btn btn-primary btn-block mb-4 w-100">Заказать</button>
+            <button name="button-buy" type="submit" class="btn btn-primary btn-block mb-4 w-100">Заказать</button>
 
         </form>
     </div>

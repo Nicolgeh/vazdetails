@@ -29,7 +29,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/app/database/db.php';
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
     </script>
     <!-- Header -->
-    <?php include '../../../assets/include/header.php'; ?>
+    <?php include '../../assets/include/header.php'; ?>
 
     <!-- title -->
     <div class="title">
@@ -50,26 +50,20 @@ include $_SERVER['DOCUMENT_ROOT'] . '/app/database/db.php';
                     <th scope="col">Телефон</th>
                     <th scope="col">Email</th>
                     <th scope="col">Статус</th>
-                    <th scope="col">Изменить статус</th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach (selectAll('orders') as $key => $value) : ?>
+                <?php foreach (selectAll('orders', ['id_user' => $_SESSION['id_user']]) as $key => $value) : ?>
                     <tr>
                         <th scope="row"><?= $value['id_order'] ?></th>
                         <td><?= selectOne('users', ['id_user' => $value['id_user']])['firstname'] . " " . selectOne('users', ['id_user' => $value['id_user']])['lastname'] ?></td>
-                        <td><?= $value['position'] ?></td>
+                        <td><?= selectOne('items', ['id_item' => $value['position']])['name'] ?></td>
                         <td><?= $value['price'] ?></td>
                         <td><?= $value['address'] ?></td>
                         <td><?= $value['phone'] ?></td>
                         <td><?= $value['email'] ?></td>
-                        
-                        <td><form method="POST"><select class="form-select mb-4" aria-label="Выбор категории" name="status"> 
-                                    <option value="1" <?php if(selectOne('orders', ['id_order' => $value['id_order']])['status'] === 1) : ?> selected <?php endif; ?>>Оплачен</option>
-                                    <option value="2" <?php if(selectOne('orders', ['id_order' => $value['id_order']])['status'] === 2) : ?> selected <?php endif; ?>>Передан в доставку</option>
-                                    <option value="3" <?php if(selectOne('orders', ['id_order' => $value['id_order']])['status'] === 3) : ?> selected <?php endif; ?>>Доставлен</option>
-                            </select></form></td>
-                        <td><button type="submit" class="btn btn-success col-12 col-md-12" name="button-change-status"><a href="changeStatus.php?id_order=<?= $value['id_order'] ?>">Изменить статус</a></button></td>
+                        <td><?= selectOne('status', ['id_status' => selectOne('orders', ['id_order' => $value['id_order']])['status']])['name'] ?></td>
+                                    
                     </tr>
                 <?php endforeach; ?>
             </tbody>
@@ -81,7 +75,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/app/database/db.php';
         </span>
     </div>
     <!-- Footer -->
-    <?php include '../../../assets/include/footer.php'; ?>
+    <?php include '../../assets/include/footer.php'; ?>
 </body>
 
 </html>

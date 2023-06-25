@@ -1,5 +1,5 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . '/app/controllers/categorie.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/app/controllers/items.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/app/database/db.php';
 ?>
 <!DOCTYPE html>
@@ -59,24 +59,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/app/database/db.php';
                 <input name="price" type="text" id="form2Example2" class="form-control" value="<?= selectOne('items', ['id_item' => $_GET['id_item']])['price'] ?>"/>
                 <label class="form-label" for="form2Example2">Цена</label>
             </div>
-            <select class="form-select mb-4" aria-label="Выбор категории" name="checkCar">
-                <option selected ><?= selectOne('categories', ['id_category' => selectOne('items', ['id_item' => $_GET['id_item']])['car']])['name']; ?></option>
-                <?php foreach (selectAll('categories', ['type' => 0]) as $key => $value) : ?>
-                    <option value="<?= $value['id_category'] ?>"><?= $value['name'] ?></option>
-                <?php endforeach; ?>
-            </select>
-            <select class="form-select mb-4" aria-label="Выбор категории" name="ckeckCategory">
-                <option selected ><?= selectOne('categories', ['id_category' => selectOne('items', ['id_item' => $_GET['id_item']])['type']])['name']; ?></option>
-                <?php foreach (selectAll('categories', ['type' => 1]) as $key => $value) : ?>
-                    <option value="<?= $value['id_category'] ?>"><?= $value['name'] ?></option>
-                <?php endforeach; ?>
-            </select>
-            <select class="form-select mb-4" aria-label="Выбор категории" name="checkPodCategory">
-                <option selected><?= selectOne('categories', ['id_category' => selectOne('items', ['id_item' => $_GET['id_item']])['podtype']])['name']; ?></option>
-                <?php foreach (selectAll('categories', ['type' => 2]) as $key => $value) : ?>
-                    <option value="<?= $value['id_category'] ?>"><?= $value['name'] ?></option>
-                <?php endforeach; ?>
-            </select>
+
 
 
             <!-- Submit button -->
