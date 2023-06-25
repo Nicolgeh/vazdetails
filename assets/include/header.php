@@ -26,7 +26,7 @@
                     </a>
 
                     <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-                        <li><a class="dropdown-item" href="../../users/user/orders.php">Заказы</a></li>
+                        <li><a class="dropdown-item" href="#">Заказы</a></li>
                         <li><a class="dropdown-item" href="../../users/user/profile.php">Профиль</a></li>
                         <li>
                             <hr class="dropdown-divider">
@@ -49,7 +49,7 @@
                                 <hr class="dropdown-divider">
                             </li>
                             <li><a class="dropdown-item" href="../../users/user/profile.php">Профиль</a></li>
-                            <li><a class="dropdown-item" href="../../../logout.php">Выйти</a></li>
+                            <li><a class="dropdown-item" href="../../logout.php">Выйти</a></li>
 
                         </ul>
                     <?php else : ?>

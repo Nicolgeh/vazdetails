@@ -46,17 +46,24 @@ include 'app/database/db.php';
                         </a>
                     </div>
                 </div>
-                <?php foreach(selectAll('items') as $key => $value) : ?>
                 <div class="carousel-item">
                     <img src="/assets/images/details/2.webp" class="d-block w-80" alt="vazprioraamg">
                     <div class="carousel-caption d-none d-md-block">
-                    <a href="single.php?id-item=<?=  $value['id-item'] ?>">
-                        <h5><?= $value['name'] ?></h5>
-                        <p><?= $value['description'] ?></p>
+                    <a href="single.php">
+                        <h5>Блок фары Приора AMG</h5>
+                        <p>Блок фары на Лада Приора в стиле AMG</p>
                         </a>
                     </div>
                 </div>
-                <?php endforeach; ?>
+                <div class="carousel-item">
+                    <img src="/assets/images/details/3.jpg" class="d-block w-80" alt="vazptf">
+                    <div class="carousel-caption d-none d-md-block">
+                    <a href="single.php">
+                        <h5>ПТФ для 2108-2115</h5>
+                        <p>Двурежимные линзованные ПТФ для машин ВАЗ 2108-2115</p>
+                        </a>
+                    </div>
+                </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -78,24 +85,55 @@ include 'app/database/db.php';
     <div class="container">
         <div class="row" id="ads">
             <!-- Category Card -->
-            <?php foreach(selectAll('items') as $key => $value) : ?>
-                    <div class="col-md-4">
-                        <a href="single.php?id_item=<?= $value['id_item'] ?>">
-                            <div class="card rounded">
-                                <div class="card-image">
-                                    <span class="card-notify-badge"><?= selectOne('categories', ['id_category' => $value['car']])['name'] ?></span>
-                                    <span class="card-notify-year">NEW</span>
-                                    <img class="img-fluid" src="/assets/images/details/1.jpg" alt="Alternate Text" />
-                                </div>
-                                <div class="card-image-overlay m-auto">
-                                    <span class="card-detail-badge"><?= selectOne('categories', ['id_category' => $value['podtype']])['name'] ?></span>
-                                    <span class="card-detail-badge"><?= $value['price'] ?>₽</span>
-                                    <span class="card-detail-badge"><?= selectOne('categories', ['id_category' => $value['type']])['name'] ?></span>
-                                </div>
-                            </div>
-                        </a>
+            <div class="col-md-4">
+            <a href="single.php">
+                <div class="card rounded">
+                    <div class="card-image">
+                        <span class="card-notify-badge">10-ки</span>
+                        <span class="card-notify-year">NEW</span>
+                        <img class="img-fluid" src="/assets/images/details/1.jpg" alt="Alternate Text" />
                     </div>
-                        <?php endforeach; ?>
+                    <div class="card-image-overlay m-auto">
+                        <span class="card-detail-badge">Оригинал</span>
+                        <span class="card-detail-badge">₽2,000 за 1шт</span>
+                        <span class="card-detail-badge">Оптика</span>
+                    </div>
+                </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+            <a href="single.php">
+                <div class="card rounded">
+                    <div class="card-image">
+                        <span class="card-notify-badge">Приоры</span>
+                        <span class="card-notify-year">NEW</span>
+                        <img class="img-fluid" src="/assets/images/details/2.webp" alt="Alternate Text" />
+                    </div>
+                    <div class="card-image-overlay m-auto">
+                        <span class="card-detail-badge">AMG</span>
+                        <span class="card-detail-badge">₽10,200 за комплект</span>
+                        <span class="card-detail-badge">Оптика</span>
+                    </div>
+                </div>
+                </a>
+            </div>
+
+            <div class="col-md-4">
+                <a href="single.php">
+                <div class="card rounded">
+                    <div class="card-image">
+                        <span class="card-notify-badge">Классика, 10-ки</span>
+                        <span class="card-notify-year">NEW</span>
+                        <img class="img-fluid" src="/assets/images/details/3.jpg" alt="Alternate Text" />
+                    </div>
+                    <div class="card-image-overlay m-auto">
+                        <span class="card-detail-badge">Стиль</span>
+                        <span class="card-detail-badge">₽2,000 за комплект</span>
+                        <span class="card-detail-badge">Оптика</span>
+                    </div>
+                </div>
+                </a>
+            </div>
             <!-- new card here -->
         </div>
     </div>

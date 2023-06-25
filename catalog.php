@@ -71,26 +71,106 @@ include 'path.php';
             <div class="col-12 col-md-9">
                 <div class="row" id="ads">
                     <!-- Category Card -->
-                    <?php foreach(selectAll('items') as $key => $value) : ?>
                     <div class="col-md-4">
-                        <a href="single.php?id_item=<?= $value['id_item'] ?>">
+                        <a href="single.php">
                             <div class="card rounded">
                                 <div class="card-image">
-                                    <span class="card-notify-badge"><?= selectOne('categories', ['id_category' => $value['car']])['name'] ?></span>
+                                    <span class="card-notify-badge">10-ки</span>
                                     <span class="card-notify-year">NEW</span>
                                     <img class="img-fluid" src="/assets/images/details/1.jpg" alt="Alternate Text" />
                                 </div>
                                 <div class="card-image-overlay m-auto">
-                                    <span class="card-detail-badge"><?= selectOne('categories', ['id_category' => $value['podtype']])['name'] ?></span>
-                                    <span class="card-detail-badge"><?= $value['price'] ?>₽</span>
-                                    <span class="card-detail-badge"><?= selectOne('categories', ['id_category' => $value['type']])['name'] ?></span>
+                                    <span class="card-detail-badge">Оригинал</span>
+                                    <span class="card-detail-badge">₽2,000 за 1шт</span>
+                                    <span class="card-detail-badge">Оптика</span>
                                 </div>
                             </div>
                         </a>
                     </div>
-                        <?php endforeach; ?>
+                    <div class="col-md-4">
+                        <a href="single.php">
+                            <div class="card rounded">
+                                <div class="card-image">
+                                    <span class="card-notify-badge">Приоры</span>
+                                    <span class="card-notify-year">NEW</span>
+                                    <img class="img-fluid" src="/assets/images/details/2.webp" alt="Alternate Text" />
+                                </div>
+                                <div class="card-image-overlay m-auto">
+                                    <span class="card-detail-badge">AMG</span>
+                                    <span class="card-detail-badge">₽10,200 за комплект</span>
+                                    <span class="card-detail-badge">Оптика</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
 
-                    
+                    <div class="col-md-4">
+                        <a href="single.php">
+                            <div class="card rounded">
+                                <div class="card-image">
+                                    <span class="card-notify-badge">Классика, 10-ки</span>
+                                    <span class="card-notify-year">NEW</span>
+                                    <img class="img-fluid" src="/assets/images/details/3.jpg" alt="Alternate Text" />
+                                </div>
+                                <div class="card-image-overlay m-auto">
+                                    <span class="card-detail-badge">Стиль</span>
+                                    <span class="card-detail-badge">₽2,000 за комплект</span>
+                                    <span class="card-detail-badge">Оптика</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-md-4">
+                        <a href="single.php">
+                            <div class="card rounded">
+                                <div class="card-image">
+                                    <span class="card-notify-badge">Классика, 10-ки</span>
+                                    <span class="card-notify-year">NEW</span>
+                                    <img class="img-fluid" src="/assets/images/details/3.jpg" alt="Alternate Text" />
+                                </div>
+                                <div class="card-image-overlay m-auto">
+                                    <span class="card-detail-badge">Стиль</span>
+                                    <span class="card-detail-badge">₽2,000 за комплект</span>
+                                    <span class="card-detail-badge">Оптика</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-md-4">
+                        <a href="single.php">
+                            <div class="card rounded">
+                                <div class="card-image">
+                                    <span class="card-notify-badge">Классика, 10-ки</span>
+                                    <span class="card-notify-year">NEW</span>
+                                    <img class="img-fluid" src="/assets/images/details/3.jpg" alt="Alternate Text" />
+                                </div>
+                                <div class="card-image-overlay m-auto">
+                                    <span class="card-detail-badge">Стиль</span>
+                                    <span class="card-detail-badge">₽2,000 за комплект</span>
+                                    <span class="card-detail-badge">Оптика</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-md-4">
+                        <a href="single.php">
+                            <div class="card rounded">
+                                <div class="card-image">
+                                    <span class="card-notify-badge">Классика, 10-ки</span>
+                                    <span class="card-notify-year">NEW</span>
+                                    <img class="img-fluid" src="/assets/images/details/3.jpg" alt="Alternate Text" />
+                                </div>
+                                <div class="card-image-overlay m-auto">
+                                    <span class="card-detail-badge">Стиль</span>
+                                    <span class="card-detail-badge">₽2,000 за комплект</span>
+                                    <span class="card-detail-badge">Оптика</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                     <!-- new card here -->
                 </div>
             </div>
