@@ -9,10 +9,10 @@
             </a>
 
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="/" class="nav-link px-2 link-secondary">Главная</a></li>
-                <li><a href="../../catalog.php" class="nav-link px-2 link-dark">Каталог</a></li>
-                <li><a href="../../about_us.php" class="nav-link px-2 link-dark">О Нас</a></li>
-                <li><a href="../../contacts.php" class="nav-link px-2 link-dark">Контакты</a></li>
+                <li><a href="/" class="nav-link px-2 link-secondary" style="color: lightgray">Главная</a></li>
+                <li><a href="../../catalog.php" class="nav-link px-2 link-dark" style="color: white">Каталог</a></li>
+                <li><a href="../../about_us.php" class="nav-link px-2 link-dark" style="color: white">О Нас</a></li>
+                <li><a href="../../contacts.php" class="nav-link px-2 link-dark" style="color: white">Контакты</a></li>
             </ul>
 
             <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">

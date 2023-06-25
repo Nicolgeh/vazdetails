@@ -3,10 +3,10 @@
   font-family: 'Comfortaa', cursive;
 }
 html,h1,h2,h3,h4,h5,h6{
-  color: #5c5b5b;
+  color: black;
 }
 body{
-  background: #f6f6f6;
+  background: #E8BB8F;
 }
 a{
   text-decoration: none;
@@ -17,24 +17,27 @@ input{
   display: block;
   width: 100%;
   border-radius: 3px;
-  border: 1px solid #ececec;
+  border: 1px solid #C4615B;
   line-height: 1.5rem;
   color: #444444;
 
 }
+/* Preloader */
+
 /* header */
 header{
-  background-color: #f2d900;
+  background-color: #86445F;
 }
 header ul li:hover{
   transition: 0.2s;
-  background-color: #ffe600;
+  background-color: #C4615B;
 }
 
 /* Carousel */
 .carousel{
   margin-top: 1rem;
   border-style:solid;
+  border-color: #86445F;
   border-radius: 3px;
   border-width: 1px;
 }
@@ -78,7 +81,7 @@ header ul li:hover{
   vertical-align: middle;
   width: 100%;
   height: 4px;
-  background-color: #f2d900;
+  background-color: #544163;
   position: relative;
   border-radius: 3px;
 }
@@ -90,6 +93,8 @@ header ul li:hover{
   margin-right: -100%;
   right: -14px;
 }
+/* Footer */
+
 /* cards */
 
 .card{
